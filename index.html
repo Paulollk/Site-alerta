@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alerta Florestal</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <header class="topo">
+    <h1>Alerta Florestal</h1>
+    <figure><img src="/img/download-removebg-preview (1).png" alt="Logo"></figure>
+    <nav>
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="/carrosel.html">Biomas</a></li>
+        <li><a href="/formulario.html">Formulario</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Modo Escuro</button>
+      </ul>
+    </nav>
+
+  </header>
+  <h2>Dados sobre o Desmatamento no Brasil</h2>
+  <hr>
+  <div class="texto">
+    <p>O pior ano foi 2023, quando houve alerta de desmatamento para uma área de 321,97 km² no período. Os alertas foram
+      feitos pelo Sistema de Detecção de Desmatamento em Tempo Real (Deter), desenvolvido como um sistema de alerta para
+      dar suporte à fiscalização e controle de desmatamento e da degradação florestal realizadas pelo Instituto
+      Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis (Ibama) e demais órgãos ligados à temática.
+     <br><br>
+      ESTADOS — A Amazônia Legal corresponde a 59% do território brasileiro e engloba os estados do Acre, Amapá,
+      Amazonas, Mato Grosso, Pará, Rondônia, Roraima, Tocantins e parte do Maranhão. Em fevereiro de 2025, o estado com
+      mais alerta de desmatamento foi Mato Grosso (29 km²), seguido por Roraima (18 km²), Pará (15 km²), Amazonas (11
+      km²), Maranhão (4 km²), Rondônia (3 km²) e Acre (2 km²).
+       <br><br>
+      CERRADO — O bioma Cerrado também apresentou queda nos alertas de desmatamento em fevereiro de 2025, quando foram
+      desmatados 494,05 km², em comparação aos dados de 2024. No mesmo período do último ano, foram desmatados 655,51
+      km², o maior valor da série histórica iniciada em 2019.
+
+      
+    </p><br>
+    <hr>
+
+    <div class="texto3">
+      <h2>Desmatamento e fogo</h2><br>
+      <p>Desmatamento e fogo - Precisamos evitar o colapso do Sistema Único de Saúde agora!
+        Esse ano de 2020 indica uma perda de floresta ainda maior em relação ao ano passado, quando a perda foi mais de
+        9.762 km2. No Acre, em comparação a abril de 2019, foram mais de 200% de área desmatada. O mesmo está
+        acontecendo por toda a Amazônia, se comparado o período de agosto a abril 2019/2020 ao mesmo período dos anos de
+        2018/2019, pois a área desmatada atual ultrapassa mais de 130% de perda.</p>
+       
+    </div><br><br>
+    <img src="/img/desmatamento.jpeg" alt="" style="width: 80%;">
+    
+    <br>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Ano</th>
+            <th>Área Desmatada (km²)</th>
+            <th>Bioma</th>
+            <th>Principal Causa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2020</td>
+            <td>10.129</td>
+            <td>Amazônia</td>
+            <td>Expansão agropecuária</td>
+          </tr>
+          <tr>
+            <td>2021</td>
+            <td>13.038</td>
+            <td>Amazônia</td>
+            <td>Garimpo ilegal e grilagem</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>11.568</td>
+            <td>Amazônia</td>
+            <td>Queimadas e extração de madeira</td>
+          </tr>
+          <tr>
+            <td>2023</td>
+            <td>9.064</td>
+            <td>Amazônia</td>
+            <td>Desmatamento para pasto</td>
+          </tr>
+          <tr>
+            <td>2024</td>
+            <td>7.828</td>
+            <td>Amazônia</td>
+            <td>Redução, mas ainda preocupante</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <script>
+      function toggleDarkMode() {
+        document.body.classList.toggle("dark-mode");
+        const btn = document.querySelector(".toggle-btn");
+        btn.textContent = document.body.classList.contains("dark-mode")
+          ? " Modo Claro"
+          : " Modo Escuro";
+      }
+    </script>
+</body>
+
+</html>

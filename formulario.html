@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/index.css">
+  <style>
+   .form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+form {
+  background: rgb(110, 202, 79);
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid #333;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form h1 {
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+form label {
+  align-self: flex-start;
+  margin-bottom: 5px;
+  color: #fff;
+  font-weight: bold;
+}
+
+form input,
+form select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+form button {
+  padding: 8px 16px;
+  margin-top: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #1b5e20;
+}
+
+  </style>
+</head>
+
+<body>
+  <header class="topo">
+    <h1>Alerta Florestal</h1>
+    <img src="/img/download-removebg-preview (1).png" alt="Logo">
+    <nav>
+      <ul>
+        <li><a href="/index.html">Início</a></li>
+        <li><a href="/carrosel.html">Biomas</a></li>
+        <li><a href="/formulario.html">Serviços</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Modo Escuro</button>
+      </ul>
+    </nav>
+
+  </header>
+
+  <div class="form-container">
+    <form id="formularioCadastro" class="fort">
+      <h1>Formulário de Cadastro</h1>
+
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required><br><br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" name="senha" required><br><br>
+
+      <label for="genero">Gênero:</label>
+      <select id="genero" name="genero" required>
+        <option value="">Selecione</option>
+        <option value="Masculino">Masculino</option>
+        <option value="Feminino">Feminino</option>
+        <option value="Outro">Outro</option>
+      </select><br><br>
+
+      <label>Origem:</label><br>
+      <input type="checkbox" name="origem" value="Brasil"> Brasil<br>
+      <input type="checkbox" name="origem" value="Outro"> Outro<br><br>
+
+      <button type="button" onclick="exportarCSV()">Exportar para CSV</button>
+      <button type="button" onclick="exportarTXT()">Exportar para TXT</button>
+    </form>
+  </div>
+  <script>
+    function validarFormulario() {
+      const nome = document.getElementById("nome").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const senha = document.getElementById("senha").value.trim();
+      const genero = document.getElementById("genero").value;
+      const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+      if (!nome || !email || !senha || !genero) {
+        alert("Por favor, preencha todos os campos obrigatórios.");
+        return false;
+      }
+
+      if (!emailRegex.test(email)) {
+        alert("E-mail inválido.");
+        return false;
+      }
+
+      return true;
+    }
+
+    function exportarCSV() {
+      if (!validarFormulario()) return;
+
+      const form = document.getElementById('formularioCadastro');
+      const formData = new FormData(form);
+      const origens = Array.from(document.querySelectorAll('input[name="origem"]:checked')).map(cb => cb.value);
+
+      const dados = {
+        nome: formData.get("nome"),
+        email: formData.get("email"),
+        senha: formData.get("senha"),
+        genero: formData.get("genero"),
+        origem: origens.join("; ")
+      };
+
+      const csv = "Nome,Email,Senha,Gênero,Origem\n" +
+        `"${dados.nome}","${dados.email}","${dados.senha}","${dados.genero}","${dados.origem}"`;
+
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "formulario.csv";
+      link.click();
+    }
+
+    function exportarTXT() {
+      if (!validarFormulario()) return;
+
+      const form = document.getElementById('formularioCadastro');
+      const formData = new FormData(form);
+      const origens = Array.from(document.querySelectorAll('input[name="origem"]:checked')).map(cb => cb.value);
+
+      let texto = "=== Dados do Formulário ===\n\n";
+      texto += "Nome: " + formData.get("nome") + "\n";
+      texto += "Email: " + formData.get("email") + "\n";
+      texto += "Senha: " + formData.get("senha") + "\n";
+      texto += "Gênero: " + formData.get("genero") + "\n";
+      texto += "Origem: " + origens.join(", ") + "\n";
+
+      const blob = new Blob([texto], { type: "text/plain;charset=utf-8;" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "formulario.txt";
+      link.click();
+    }
+  </script>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+      const btn = document.querySelector(".toggle-btn");
+      btn.textContent = document.body.classList.contains("dark-mode")
+        ? " Modo Claro"
+        : " Modo Escuro";
+    }
+  </script>
+</body>
+
+</html>

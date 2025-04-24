@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .carousel-inner img {
+            display: block;
+            margin: 0 auto;
+            max-height: 500px;
+            /* Ajuste a altura conforme necessário */
+            width: auto;
+            max-width: 100%;
+            object-fit: cover;
+        }
+
+        #bioma-info {
+            text-align: center;
+            margin-top: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(31, 85, 185);
+            padding: 30px;
+        }
+
+        .conteudo2 {
+            padding: 28px;
+            margin: 10px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .conteudo2 {
+            text-align: center;
+            width: 80%;
+            margin: 0 auto;
+        }
+        .video {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  border-radius: 12px;
+}
+
+.video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+    </style>
+
+</head>
+
+<body>
+    <header class="topo">
+        <h1>Alerta Florestal</h1>
+        <img src="/img/download-removebg-preview (1).png" alt="Logo">
+        <nav>
+            <ul>
+                <li><a href="/formulario.html">Início</a></li>
+                <li><a href="/carrosel.html">Biomas</a></li>
+                <li><a href="/formulario.html">Formulario</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Modo Escuro</button>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Biomas</h1>
+    <hr>
+    <!-- CARROSSEL -->
+    <div id="demo" class="carousel slide" data-bs-ride="carousel"> <!-- Indicadores -->
+        <div class="carousel-indicators"> <button type="button" data-bs-target="#demo" data-bs-slide-to="0"
+                class="active"></button> <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button> <button type="button"
+                data-bs-target="#demo" data-bs-slide-to="3"></button> <button type="button" data-bs-target="#demo"
+                data-bs-slide-to="4"></button> <button type="button" data-bs-target="#demo"
+                data-bs-slide-to="5"></button>
+        </div> <!-- Slides -->
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bioma="Pampa"> <img
+                    src="https://th.bing.com/th/id/R.620a314034c34276acce602b280e6220?rik=gbE7TfwL1JTCIw&riu=http%3a%2f%2fpensamentoverde.com.br%2fwp-content%2fuploads%2f2014%2f03%2fimg132.jpg&ehk=uvBZ5TAIMFtHgWp8ipkp8zz%2bulmwZQ3ripm58zgV5xM%3d&risl=&pid=ImgRaw&r=0"
+                    class="d-block" alt="Pampa"> </div>
+            <div class="carousel-item" data-bioma="Cerrado"> <img
+                    src="https://assets.brasildefato.com.br/2024/09/image_processing20200201-29235-ndk9re.jpg"
+                    class="d-block" alt="Cerrado"> </div>
+            <div class="carousel-item" data-bioma="Amazonia"> <img
+                    src="https://th.bing.com/th/id/R.77b468c8e835472fa06fdcb8f3dbb720?rik=hp3V4th0bw6Feg&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2fb%2f6%2f0%2f1386385-beautiful-amazon-rainforest-wallpaper-1920x1200-for-htc.jpg&ehk=VAPXxlJ0hpMvlf%2babYuEAdfWNQwkAtFvFlUVR0ljbvY%3d&risl=&pid=ImgRaw&r=0"
+                    class="d-block" alt="Amazônia"> </div>
+            <div class="carousel-item" data-bioma="Mata Atlântica"> <img
+                    src="https://www.todoestudo.com.br/wp-content/uploads/2018/02/mata-atlantica-1.jpg" class="d-block"
+                    alt="Mata Atlântica"> </div>
+            <div class="carousel-item" data-bioma="Caatinga"> <img
+                    src="https://static.mundoeducacao.uol.com.br/mundoeducacao/2023/06/caatinga.jpg" class="d-block"
+                    alt="Caatinga"> </div>
+            <div class="carousel-item" data-bioma="Pantanal"> <img
+                    src="https://inspirationseek.com/wp-content/uploads/2014/11/Pantanal-Brazil-Pictures.jpg"
+                    class="d-block" alt="Pantanal"> </div>
+        </div> <!-- Controles --> <button class="carousel-control-prev" type="button" data-bs-target="#demo"
+            data-bs-slide="prev"> <span class="carousel-control-prev-icon"></span> </button> <button
+            class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next"> <span
+                class="carousel-control-next-icon"></span> </button>
+    </div> <!-- CONTEÚDO DO BIOMA -->
+    <div id="bioma-info">
+        <h2 id="bioma-titulo">Pampa</h2>
+        <p id="bioma-descricao">O Pampa está localizado no sul do Brasil e é conhecido por seus campos naturais. É
+            afetado pela agricultura e pecuária intensiva.</p>
+    </div>
+    </div> <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script> const biomaTitulo = document.getElementById('bioma-titulo'); const biomaDescricao = document.getElementById('bioma-descricao'); const descricoes = { 'Pampa': 'O Pampa está localizado no sul do Brasil e é conhecido por seus campos naturais. É afetado pela agricultura e pecuária intensiva.', 'Cerrado': 'O Cerrado é o segundo maior bioma brasileiro, extremamente rico em biodiversidade, mas sofre com o avanço do agronegócio.', 'Amazonia': 'A Amazônia é o maior bioma do Brasil, vital para o clima global. Enfrenta desmatamento, mineração e queimadas ilegais.', 'Mata Atlântica': 'A Mata Atlântica é um bioma composto por um conjunto de florestas e ecossistemas que corresponde a 15% do território brasileiro. Ela era contínua como a floresta Amazônica na época do descobrimento do Brasil, mas hoje resta apenas 7% da mata original, devido ao desmatamento, as queimadas e a degradação do ambiente.', 'Caatinga': 'A Caatinga é um bioma exclusivamente brasileiro, caracterizado por um clima semiárido e vegetação adaptada à falta de água. Ela abrange uma área significativa do Nordeste do Brasil, incluindo estados como Maranhão, Piauí, Ceará e Rio Grande do Norte.', 'Pantanal': 'O Pantanal é o menor bioma brasileiro e a maior planície de inundação do mundo, com 250 mil km² de extensão. Localizado no Centro-Oeste do Brasil, nos Estados do Mato Grosso e Mato Grosso do Sul, o Pantanal é rico em biodiversidade, apresentando diversas espécies de fauna e flora.' }; const carousel = document.getElementById('demo'); carousel.addEventListener('slid.bs.carousel', function () { const activeItem = carousel.querySelector('.carousel-item.active'); const bioma = activeItem.getAttribute('data-bioma'); biomaTitulo.textContent = bioma; biomaDescricao.textContent = descricoes[bioma]; }); </script>
+    <hr>
+    <h2>Garimpo ilegal</h2>
+    <div class="conteudo2">
+        <p>Garimpo ilegal
+            O garimpo ilegal na Amazônia também é um dos responsáveis pelo aumento do desmatamento na Amazôniaregião. No
+            ano de 2022, o Greenpeace Brasil esteve na região e expôs a abertura clandestina de uma estrada com extensão
+            de 150 km, juntamente com a construção irregular de uma pista de pouso.
+
+            Ambas as infrações foram feitas por garimpeiros, resultando na devastação da floresta e facilitando as
+            operações ilegais de mineração na região. De janeiro a agosto de 2023, a mineração foi responsável por
+            desmatar 76 km² de floresta, um estrago maior do que no ano inteiro de 2022 (64 km²).</p>
+
+        <div class="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/eVPS7R_dmFw?si=V85tTatzosLi4aRq"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+            const btn = document.querySelector(".toggle-btn");
+            btn.textContent = document.body.classList.contains("dark-mode")
+                ? " Modo Claro"
+                : " Modo Escuro";
+        }
+    </script>
+
+
+</body>
+
+</html>
